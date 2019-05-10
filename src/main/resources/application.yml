@@ -1,0 +1,13 @@
+server:
+  port: 8080
+
+#spring actuator services
+management:
+  endpoints:
+    enabled-by-default: true
+
+logging:
+  level:
+    org.springframework.web: debug
+  file: app.log
+
