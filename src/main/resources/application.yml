@@ -9,13 +9,14 @@ management:
 logging:
   level:
     org.springframework.web: debug
+    org.springframework.jdbc.datasoruce: debug
   file: app.log
 
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
-    properties:
+      ddl-auto: update # auto create schema
+    properties: # for log
       show_sql: true
       format_sql: true
 

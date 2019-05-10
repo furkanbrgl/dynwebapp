@@ -1,13 +1,23 @@
 package com.furkanbrgl.dynwebapp.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Owner {
-    private Long id;
-    private String firstName;
-    private String lastName;
+import javax.persistence.GeneratedValue;
 
+@Entity
+@Table(name = "t_owner")
+public class Owner {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "machineClinicSeqGen")
+    @SequenceGenerator(name = "machineClinicSeqGen", sequenceName = "machineclinic_sequence")
+    private Long id;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+    @OneToMany(mappedBy = "owner")
     private Set<Machine> machineSet = new HashSet<>();
 
     public Set<Machine> getMachineSet() {

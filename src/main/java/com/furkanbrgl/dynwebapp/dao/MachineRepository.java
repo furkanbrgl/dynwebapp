@@ -9,9 +9,9 @@ public interface MachineRepository {
 
     List<Machine> findByOwnerId(Long ownerId);
 
-    void create(Machine pet);
+    void create(Machine machine);
 
-    Machine update(Machine pet);
+    Machine update(Machine machine);
 
     void delete(Long id);
 

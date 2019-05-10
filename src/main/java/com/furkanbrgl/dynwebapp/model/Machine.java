@@ -2,10 +2,29 @@ package com.furkanbrgl.dynwebapp.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="t_machine")
 public class Machine {
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE,generator="machineClinicSeqGen")
+    @SequenceGenerator(name="machineClinicSeqGen",sequenceName="machineclinic_sequence")
     private Long id;
+    @Column(name="name")
     private String name;
+    @Column(name="generation_date")
     private Date generationDate;
+    @ManyToOne
+    @JoinColumn(name="owner_id")
     private Owner owner;
 
     public Owner getOwner() {
