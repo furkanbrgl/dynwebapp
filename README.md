@@ -41,3 +41,16 @@ Varsayılan durumda şablon dosyaları classpath altında /templates isimli bir 
 spring.thymeleaf.cache=true
 Şablon motoru ile ilgili starter eklendiğinde view resolution kabiliyeti de otomatik olarak devreye girer .
 spring.thymeleaf.enabled=true 
+
+### H2 Veritabanı
+Açık kaynak kodlu ve kullanımı oldukça kolay bir SQL veritabanıdır.
+Java tabanlıdır, veriyi dosya sisteminde saklar.
+Gömülü veya harici bir process şeklinde çalıştırılabilir.
+Tarayıcı üzerinden console erişimi sunar
+Tarayıcı üzerinden H2’nin console’una erişmek ve veritabanı üzerinde işlemler yapmak mümkündür.Spring Boot H2 console’u otomatik olarak aktive eder 
+
+```<dependency>
+<dependency> <groupId>com.h2database</groupId> <artifactId>h2</artifactId> <scope>runtime</scope> </dependency>
+
+http://localhost:8080/h2-console
+```

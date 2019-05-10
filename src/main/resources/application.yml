@@ -11,3 +11,13 @@ logging:
     org.springframework.web: debug
   file: app.log
 
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      show_sql: true
+      format_sql: true
+
+
+
