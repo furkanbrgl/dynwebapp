@@ -5,6 +5,8 @@ import com.furkanbrgl.dynwebapp.exception.OwnerNotFoundException;
 import com.furkanbrgl.dynwebapp.model.Owner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,7 +21,11 @@ public class MachineClinicServiceImpl implements MachineClinicService {
         return ownerRepository.findAll();
     }
 
+    /*
+    we dont flush before committing db if readOnly is true. (recommended to getter method because getter methods dont change pojo so just take some data from db)
+     */
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Owner> findOwners(String lastName) {
         return ownerRepository.findByLastName(lastName);
     }
