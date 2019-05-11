@@ -19,6 +19,20 @@ public class MachineClinicController {
         return "Welcome to Machine Clinic World!";
     }
 
+    @RequestMapping(value={"/","/index"})
+    public ModelAndView index() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("index");
+        return mav;
+    }
+
+    @RequestMapping(value="/login")
+    public ModelAndView loginPage() {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        return mav;
+    }
+
     @RequestMapping("/owners")
     public ModelAndView getOwners() {
         ModelAndView mav = new ModelAndView();
