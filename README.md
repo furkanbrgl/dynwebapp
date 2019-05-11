@@ -54,3 +54,38 @@ Tarayıcı üzerinden H2’nin console’una erişmek ve veritabanı üzerinde i
 
 http://localhost:8080/h2-console
 ```
+
+###Spring Security Framework
+Spring Boot, güvenlik ihtiyaçlarını karşılamak için Spring Security Framework’ü kullanmaktadır.
+Spring Security web uygulamaları için kimliklendirme ve yetkilendirme kabiliyetleri sunan kapsamlı bir güvenlik framework’üdür.
+
+Bütün HTTP endpoint'leri güvenlik altına alınmıştır.
+Kullanıcı adı user olan, password'ü rastgele belirlenmiş ve lNFO log düzeyinde console'a yazılan  bir kullanıcı mevcuttur.
+
+
+Default kullanıcı adını, password'ü ve rollerini değiştirmek mümkündür
+security.user.name=user security.user.password=secret security.user.role=USER,ACTUATOR
+
+
+Default Configleri ezmek için;
+
+
+@Configration
+SecurtyConfigration extends WebSecurityConfigurerAdapter {}
+
+Aşağıdaki statik web resource path'leri public resource olarak erişilmektedir.
+
+/css/** 
+
+/js/** 
+
+/webjars/** 
+
+/**/favicon.ico
+
+/images/** 
+##### Usage
+
+```<dependency>
+<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> </dependency>
+```
