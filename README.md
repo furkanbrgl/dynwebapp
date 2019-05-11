@@ -55,7 +55,8 @@ Tarayıcı üzerinden H2’nin console’una erişmek ve veritabanı üzerinde i
 http://localhost:8080/h2-console
 ```
 
-###Spring Security Framework
+
+### Spring Security Framework
 
 Spring Boot, güvenlik ihtiyaçlarını karşılamak için Spring Security Framework’ü kullanmaktadır.
 Spring Security web uygulamaları için kimliklendirme ve yetkilendirme kabiliyetleri sunan kapsamlı bir güvenlik framework’üdür.
