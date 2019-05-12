@@ -22,3 +22,14 @@ INSERT INTO t_machine (id,name,birth_date,owner_id) VALUES (10, 'XAX10', '2009-0
 INSERT INTO t_machine (id,name,birth_date,owner_id) VALUES (11, 'XAX11', '2000-03-09', 7);
 INSERT INTO t_machine (id,name,birth_date,owner_id) VALUES (12, 'XAX12', '2000-06-24', 8);
 INSERT INTO t_machine (id,name,birth_date,owner_id) VALUES (13, 'XAX13', '2002-06-08', 9);
+
+--
+INSERT INTO USERS VALUES('user1','{noop}secret',TRUE);
+INSERT INTO USERS VALUES('user2','{noop}secret',TRUE);
+INSERT INTO USERS VALUES('user3','{noop}secret',TRUE);
+
+INSERT INTO AUTHORITIES VALUES('user1','ROLE_USER');
+INSERT INTO AUTHORITIES VALUES('user2','ROLE_USER');
+INSERT INTO AUTHORITIES VALUES('user2','ROLE_EDITOR');
+INSERT INTO AUTHORITIES VALUES('user3','ROLE_USER');
+INSERT INTO AUTHORITIES VALUES('user3','ROLE_ADMIN');
