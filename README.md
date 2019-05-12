@@ -91,3 +91,62 @@ Aşağıdaki statik web resource path'leri public resource olarak erişilmektedi
 ```<dependency>
 <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> </dependency>
 ```
+
+### Spring Boot and E-Posta Sender
+Spring Boot e-posta gönderimi için Java Mail API’sini kullanmaktadır 
+
+E-posta gönderiminde ana sınıf Spring tarafından tanımlanmış JavaMailSender arayüzüdür 
+
+Spring Boot JavaMailSender bean konfigürasyonunu otomatik olarak gerçekleştirir
+
+##### Usage
+
+```<dependency>
+<dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-mail</artifactId> </dependency>
+
+spring.mail.host=localhost
+
+spring.mail.port=1125 
+spring.mail.properties.mail.smtp.connectiontimeout=5000 
+spring.mail.properties.mail.smtp.timeout=3000 
+spring.mail.properties.mail.smtp.writetimeout=5000
+```
+
+Spring bütün e-posta mesajları için MailMessage isimli ortak bir arayüz tanımlamıştır
+
+
+SimpleMailMessage gerçekleştirimi ile metin tabanlı basit e-posta mesajları gönderilebilir
+
+ MimeMailMessage gerçekleştirimi ile de zengin içerikli veya ek barındıran MIME mesajları gönderilebilir
+ 
+##### Test to sended message
+
+Geliştirme ortamında e-posta gönderimini test etmek için Dumpster veya FakeSMTP gibi basit test amaçlı SMTP sunucuları kullanılabilir
+
+$java -jar fakeSMTP-2.0.ja
+
+
+## Spring Boot Cache
+Controller veya sevis katmanlarında yer alan bean lerin method ların return degerlerinin cache lenmesinde kullanılmakta.
+
+ORM 2nd level cache kabiliyeti persistent domain nesnelerinin state lerinin ön bellekte tutulmasını saglar. (db'ye gitmez)
+
+Spring cache ise method invokasyonlarının return degerlerinin ön bellekten getirmeyi saglar.
+
+Spring Application Level Cache -> Controller, Service Layer
+ORM/Hibernate 2nd Level Cache -> DAO Layer
+
+Spring Boot farklı cache proverder ları desteklemektedir; 
+Jcache, EhCache, Hazelcast, Redis, Caffeine
+
+##### Usage
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-cache</artifactId>
+    <version>2.1.4.RELEASE</version>
+</dependency>
+
+@Cacheable("region")
+```
