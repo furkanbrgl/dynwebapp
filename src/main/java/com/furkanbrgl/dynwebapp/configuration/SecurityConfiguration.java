@@ -23,9 +23,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/**/favicon.ico", "/css/**", "js/**", "/images/**", "/webjars/**", "/login.html")
                 .permitAll();
+        http.authorizeRequests().antMatchers("/actuator/**").access("hasRole('ADMIN')");
+        http.authorizeRequests().antMatchers("/rest/**").access("hasRole('EDITOR')");
         http.authorizeRequests().anyRequest().authenticated(); //all request is required authenticated
         http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").failureUrl("/login.html?loginFailed=true"); //and redirect login
         http.rememberMe().userDetailsService(userDetailsService);
+
         http.httpBasic(); //http basic authentication.
     }
 
