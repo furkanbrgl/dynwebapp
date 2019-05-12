@@ -62,6 +62,10 @@
                     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"></td>
             </tr>
             <tr>
+            <td>Remember Me:</td>
+            <td><input name="remember-me" type="checkbox"><br /></td>
+            </tr>
+            <tr>
                 <td colspan='2'><input name="submit" type="submit"
                                        value="Login" /></td>
             </tr>
