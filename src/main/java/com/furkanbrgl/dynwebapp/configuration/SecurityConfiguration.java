@@ -20,5 +20,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().anyRequest().authenticated(); //all request is required authenticated
         http.formLogin().loginPage("/login.html").loginProcessingUrl("/login").failureUrl("/login.html?loginFailed=true"); //and redirect login
         http.rememberMe().userDetailsService(userDetailsService);
+        http.httpBasic(); //http basic authentication.
     }
 }
